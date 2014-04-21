@@ -10,9 +10,12 @@
 }
 
 .touched {
-    background-color: #dcffd2
+    background-color: #feffea
 }
 
+.failed.untouched {
+    color: blue;
+}
 
 /* styles to prettify the text - not specific to valerie */
 body {

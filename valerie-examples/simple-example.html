@@ -14,20 +14,25 @@
     <a href="index.html">return to Index</a>
     <p>This is the simplest example of a validated viewmodel.</p>
     <form>
-        <label>
-            First name:
-            <input type="text" data-bind="value: firstname" />
-            <span data-bind="validationMessage: firstname"></span>
-        </label>
-        <label>
-            Surname:
-            <input type="text" data-bind="value: surname" />
-            <span data-bind="validationMessage: surname"></span>
-        </label>
+        <div data-bind="validationCss: firstname">
+            <label>
+                First name:
+                <input type="text" data-bind="value: firstname" />
+                <span data-bind="validationMessage: firstname"></span>
+            </label>
+        </div>
+        <div data-bind="validationCss: surname">
+            <label>
+                Surname:
+                <input type="text" data-bind="value: surname" />
+                <span data-bind="validationMessage: surname"></span>
+            </label>
+        </div>
         <button type="submit" data-bind="click: submit">Submit</button>
-        <span data-bind="text: validation().passed()" ></span>
+        <span data-bind="text: validation().passed()"></span>
     </form>
-  
+
+
     <script type="text/javascript">
         /*
         ** viewmodel code
@@ -36,7 +41,7 @@
             // define viewmodel
             var viewModel = function () {
 
-                // We call .validate() on the observable definition and specify the rules in a fluent 
+                // We call .validate() on the observable definition and specify the rules in a fluent
                 // chained style, calling .end() as the last method to return the observable
 
                 this.firstname = ko.observable("").validate().required().end();
@@ -47,18 +52,21 @@
                 // we now have a .validation() method available
                 valerie.validatableModel(this).validateAllProperties().end();
 
+                
                 // button handler for submit
                 this.submit = function () {
                     // we call validate().touched(true) on the viewModel to ensure
-                    // all fields are validated (even if the user didn't touch the field)
+                    // all properties get validated (even if the user didn't touch the field)
                     this.validation().touched(true);
 
                     // we can now check to see if all the properties were valid
                     if (this.validation().passed()) {
                         alert("All fields are valid");
-                        // we could save or process at this point
+                        // do something with the field values here
+
                     } else {
                         alert("Not all fields are valid");
+                        // don't proceed
                     }
                 };
 
