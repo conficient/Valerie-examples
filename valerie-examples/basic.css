@@ -1,16 +1,16 @@
 ﻿
 /* css classes for valerie */
 
-.error {
-    color: red;
-}
-
 .failed {
     color: red;
 }
 
+.passed {
+    color: green;
+}
+
 .touched {
-    background-color: #feffea
+    color: purple;
 }
 
 .failed.untouched {

@@ -32,6 +32,16 @@
         <span data-bind="text: validation().passed()"></span>
     </form>
 
+    <div>
+        Notes:
+        Default CSS classes used by valerie are:
+        <dl>
+            <dt>passed</dt>
+            <dd>xxx</dd>
+            <dt>failed</dt>
+            <dd>xxx</dd>
+        </dl>
+    </div>
 
     <script type="text/javascript">
         /*
@@ -52,7 +62,7 @@
                 // we now have a .validation() method available
                 valerie.validatableModel(this).validateAllProperties().end();
 
-                
+
                 // button handler for submit
                 this.submit = function () {
                     // we call validate().touched(true) on the viewModel to ensure
