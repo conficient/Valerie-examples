@@ -1,19 +1,17 @@
 ﻿
 /* css classes for valerie */
 
-.failed {
-    color: red;
-}
 
 .passed {
     color: green;
 }
 
-.touched {
-    color: purple;
+.failed.touched {
+    color: red;
 }
 
 .failed.untouched {
+    /* the failed class is added */
     color: blue;
 }
 

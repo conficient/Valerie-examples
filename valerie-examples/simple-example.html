@@ -33,14 +33,31 @@
     </form>
 
     <div>
-        Notes:
-        Default CSS classes used by valerie are:
+        <h3>Notes:</h3>
+        <p>
+            Default CSS classes used by valerie are:
+        </p>
         <dl>
-            <dt>passed</dt>
-            <dd>xxx</dd>
-            <dt>failed</dt>
-            <dd>xxx</dd>
+            <dt class="passed">passed</dt>
+            <dd>The property has passed validation</dd>
+            <dt class="failed">failed</dt>
+            <dd>The property has failed validation</dd>
+            <dt class="touched">touched</dt>
+            <dd>The property has been touched (changed)</dd>
+            <dt class="untouched">untouched</dt>
+            <dd>The property has not been touched</dd>
         </dl>
+        <p>
+            As properties that fail validation get the failed class immediately, we use the touched state to
+            control whether the error is shown or not.
+        </p>
+        <p>You can change the classes used as follows:</p>
+        <pre>
+ko.bindingHandlers.validationCss.classNames.failed = "error";
+ko.bindingHandlers.validationCss.classNames.passed = "success";
+ko.bindingHandlers.validationCss.classNames.touched = "touched";
+ko.bindingHandlers.validationCss.classNames.untouched = "untouched";
+</pre>
     </div>
 
     <script type="text/javascript">
