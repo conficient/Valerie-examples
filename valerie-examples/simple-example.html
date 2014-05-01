@@ -12,7 +12,7 @@
 <body>
     <h1>Simple Example</h1>
     <a href="index.html">return to Index</a>
-    <p>This is the simplest example of a validated viewmodel.</p>
+    <p>This is a simple example of a validated viewmodel.</p>
     <form>
         <div data-bind="validationCss: firstname">
             <label>
@@ -29,9 +29,7 @@
             </label>
         </div>
         <button type="submit" data-bind="click: submit">Submit</button>
-        <span data-bind="text: validation().passed()"></span>
     </form>
-
     <div>
         <h3>Notes:</h3>
         <p>
@@ -45,14 +43,15 @@
             <dt class="touched">touched</dt>
             <dd>The property has been touched (changed)</dd>
             <dt class="untouched">untouched</dt>
-            <dd>The property has not been touched</dd>
+            <dd>The property has not been touched (changed)</dd>
         </dl>
         <p>
-            As properties that fail validation get the failed class immediately, we use the touched state to
-            control whether the error is shown or not.
+            Validation is performed immediately on properties when the validation is defined. Hence,
+            if we just used the <i>failed</i> state all invalid fields would immediately show as errors
+            before the user has had a change to do anything.
         </p>
-        <p>You can change the classes used as follows:</p>
-        <pre>
+        <p>You can change the classes applied using <i>ko.bindingHandlers.validationCss.className</i>. For example:</p>
+<pre>
 ko.bindingHandlers.validationCss.classNames.failed = "error";
 ko.bindingHandlers.validationCss.classNames.passed = "success";
 ko.bindingHandlers.validationCss.classNames.touched = "touched";
